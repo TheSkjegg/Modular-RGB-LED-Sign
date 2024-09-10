@@ -1,2 +1,3 @@
 # Modular-RGB-LED-Sign
-3D Printed modular RGB LED strip sign
+
+This repo holds the code for modular 3D printed RGD LED signs as shown in this video:
