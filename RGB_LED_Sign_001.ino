@@ -29,17 +29,15 @@ FASTLED_USING_NAMESPACE
 #define COLOR_ORDER GRB
 #define NUM_LEDS    14
 CRGB leds[NUM_LEDS];
-
 #define BRIGHTNESS          255
 #define FRAMES_PER_SECOND  60
-
 #define ENC_SWITCH  10
 
 // Enter first LED in each char, starting from 0. Let last array item be total number of LEDS.
-int FirstLedInChar[] = {0,2,4,6,8,10,12,NUM_LEDS};
+int FirstLedInChar[] = {0,2,4,5,7,9,10,12,NUM_LEDS};
 CRGB color[] = {CRGB::White, CRGB::Red, CRGB::Lime, CRGB::Blue, CRGB::DodgerBlue, CRGB::Yellow, CRGB::Plum, CRGB::LightSalmon, CRGB::Fuchsia, CRGB::Gold, CRGB::Magenta, CRGB::Brown, CRGB::Purple};
 // Array defines startup colors for the freeColor mode. Make sure to have one array element per char.
-int colorSet[] = {0,1,1,1,1,1,0};
+int colorSet[] = {1,5,5,5,5,5,5,1};
 unsigned long timer = 0;
 
 Encoder Enc(8, 9);
@@ -48,10 +46,9 @@ long oldPosition  = 0;
 volatile byte SW_state = 0;
 int mode = 1;
 bool onOff = true;
-uint8_t brightness = 40;
+uint8_t brightness = 10;
 
 void setup() {
-  Serial.begin(9600); // Debug use
   delay(3000); // 3 second delay for recovery
   pinMode(ENC_SWITCH, INPUT_PULLUP);
   // tell FastLED about the LED strip configuration
@@ -210,8 +207,13 @@ void updateBrightness(){
       brightness--;
     else if ((newPosition > oldPosition) && (brightness < 50))
       brightness++;
+
+    if(brightness >= 35) // A bit of expo feeling..
+      FastLED.setBrightness(map(brightness, 35, 50, 10, 1));
+    else
+      FastLED.setBrightness(map(brightness, 0, 35, 255, 10));
+
     oldPosition = newPosition;
-      FastLED.setBrightness(map(brightness, 0, 50, 255, 0));
 }
 
 void nextPattern(){
