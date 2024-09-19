@@ -35,7 +35,7 @@ CRGB leds[NUM_LEDS];
 
 // Enter first LED in each char, starting from 0. Let last array item be total number of LEDS.
 int FirstLedInChar[] = {0,2,4,6,8,10,12,NUM_LEDS};
-CRGB color[] = {CRGB::White, CRGB::Red, CRGB::Lime, CRGB::Blue, CRGB::DodgerBlue, CRGB::Yellow, CRGB::Plum, CRGB::LightSalmon, CRGB::Fuchsia, CRGB::Gold, CRGB::Magenta, CRGB::Brown, CRGB::Purple};
+CRGB color[] = {CRGB::White, CRGB::Red, CRGB::Lime, CRGB::Blue, CRGB::DodgerBlue, CRGB::Yellow, CRGB::Plum, CRGB::LightSalmon, CRGB::Fuchsia, CRGB::Gold, CRGB::Magenta, CRGB::Brown, CRGB::OrangeRed};
 // Array defines startup colors for the freeColor mode. Make sure to have one array element per char.
 int colorSet[] = {1,5,5,5,5,5,1};
 unsigned long timer = 0;
