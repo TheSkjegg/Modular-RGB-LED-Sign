@@ -21,7 +21,7 @@ Wiring.png shows parts required (encoder is optional really).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode 6: bpm  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode 7: freeColor (lets user set color for each character/symbol) 
 
-**RGB_LED_Sign_003:**  
+**RGB_LED_Sign_004:**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Added Mode 8: freeColorLeds (lets user set color for each led)
   
   **BasicStatic:**   
